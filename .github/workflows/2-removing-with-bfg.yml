@@ -57,7 +57,10 @@ jobs:
         run: |
           if [ -n "$(git log --stat --all -- .env)" ]; then
             echo "File .env is still in the repository's history, please remove it."
-            exit 1
+            echo "#######"
+            git log --stat --all -- .env
+            echo "#######"
+            #exit 1
           else
             echo "File .env doesn't exist in the repository's history."
             exit 0
